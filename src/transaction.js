@@ -8,6 +8,10 @@ class Transaction {
     this.balance += value;
   }
 
+  withdraw(value) {
+    this.balance -= value;
+  }
+
   getBalance() {
     return this.balance;
   }
