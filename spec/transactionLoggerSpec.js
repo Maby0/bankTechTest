@@ -9,7 +9,7 @@ describe("TransactionLogger", function () {
       expect(transaction.getBalance()).toEqual(1);
     })
 
-    it("adds the transaciton to the log array", function () {
+    it("adds the deposit transaciton to the log array", function () {
       transaction.deposit(1);
       expect(transaction.getLog().length).toEqual(1);
     })
@@ -22,8 +22,10 @@ describe("TransactionLogger", function () {
       expect(transaction.getBalance()).toEqual(0);
     })
 
-    // it("adds the transaction to the log array", function () {
-
-    // })
+    it("adds the withdraw transaction to the log array", function () {
+      transaction.deposit(1);
+      transaction.withdraw(1);
+      expect(transaction.getLog().length).toEqual(2);
+    })
   })
 })

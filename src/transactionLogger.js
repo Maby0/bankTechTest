@@ -14,12 +14,20 @@ class TransactionLogger {
       debit: null, 
       balance: this.balance
     };
-    
+
     this.log.push(this.transaction);
   }
 
   withdraw(value) {
     this.balance -= value;
+    this.transaction = {
+      date: this.DATE, 
+      credit: null, 
+      debit: value, 
+      balance: this.balance
+    };
+    
+    this.log.push(this.transaction);
   }
 
   getBalance() {
