@@ -1,17 +1,16 @@
 class Statement {
   constructor(transactionLog) {
-    this.date = transactionLog["date"];
-    this.credit = transactionLog["credit"];
-    this.debit = transactionLog["debit"];
-    this.balance = transactionLog["balance"];
+    this.transactionLog = transactionLog;
   }
 
   print() {
     console.log(
       "date || credit || debit || balance"
-    )
-    console.log(
-      `${this.date} || ${this.credit} || ${this.debit} || ${this.balance}`
-    )
+    );
+    this.transactionLog.forEach(transaction => {
+      console.log(
+        `${transaction.date} || ${(transaction.transactionType == "deposit") ? transaction.transactionValue.toFixed(2) : ""} || ${(transaction.transactionType == "withdraw") ? transaction.transactionValue.toFixed(2) : ""} || ${transaction.updatedBalance.toFixed(2)}`
+      )
+    });
   }
 }

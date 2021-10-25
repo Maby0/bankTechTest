@@ -1,6 +1,6 @@
 class Transaction {
   constructor(currentBalance, type, value = 0) {
-    this.DATE = new Date().toLocaleString().substring(0,10);
+    this.date = new Date().toLocaleString().substring(0,10);
     this.transactionType = type;
     this.transactionValue = value;
     this.updatedBalance = this._calculateNewBalance(currentBalance, type, value);

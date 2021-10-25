@@ -7,6 +7,7 @@ class Account {
   newTransaction(type, value) {
     let transaction = this._newTransactionInstance(type, value);
     this.transactionLog.push(transaction);
+    this._updateBalance();
   }
 
   getTransactionLog() {
@@ -14,8 +15,11 @@ class Account {
   }
 
   getBalance() {
-    this._updateBalance();
     return this.balance.toFixed(2);
+  }
+
+  printStatement() {
+    new Statement(this.transactionLog).print()
   }
 
   _newTransactionInstance(type, value) {
