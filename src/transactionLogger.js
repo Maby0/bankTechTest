@@ -1,3 +1,5 @@
+const DECIMAL = 2;
+
 class TransactionLogger {
   constructor() {
     this.balance = 0;
@@ -5,13 +7,15 @@ class TransactionLogger {
     this.DATE = new Date();
   }
 
+  
+
   deposit(value) {
     this.balance += value;
     let transaction = {
       date: this.DATE, 
-      credit: value, 
+      credit: value.toFixed(DECIMAL), 
       debit: null, 
-      balance: this.balance
+      balance: this.balance.toFixed(DECIMAL)
     };
 
     this._logTransaction(transaction);
@@ -22,15 +26,15 @@ class TransactionLogger {
     let transaction = {
       date: this.DATE, 
       credit: null, 
-      debit: value, 
-      balance: this.balance
+      debit: value.toFixed(DECIMAL), 
+      balance: this.balance.toFixed(DECIMAL)
     };
     
     this._logTransaction(transaction);
   }
 
   getBalance() {
-    return this.balance;
+    return this.balance.toFixed(DECIMAL);
   }
 
   getLog() {

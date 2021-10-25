@@ -6,7 +6,7 @@ describe("TransactionLogger", function () {
   describe("deposit", function () {
     it("adds the argument value to the balance", function () {
       transaction.deposit(1);
-      expect(transaction.getBalance()).toEqual(1);
+      expect(transaction.getBalance()).toEqual("1.00");
     })
 
     it("adds the deposit transaciton to the log array", function () {
@@ -19,7 +19,7 @@ describe("TransactionLogger", function () {
     it("subtracts the argument value from the balance", function () {
       transaction.deposit(1);
       transaction.withdraw(1);
-      expect(transaction.getBalance()).toEqual(0);
+      expect(transaction.getBalance()).toEqual("0.00");
     })
 
     it("adds the withdraw transaction to the log array", function () {
