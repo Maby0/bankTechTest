@@ -19,6 +19,6 @@ describe("Statement", function () {
       expect(console.log).toHaveBeenCalledWith(
         '01/01/2021 || 1.00 ||  || 1.00'
       );
-    })
-  })
-})
+    });
+  });
+});
