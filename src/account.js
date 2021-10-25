@@ -5,6 +5,15 @@ class Account {
   }
 
   newTransaction(type, value) {
-    return new Transaction(type, value);
+    let transaction = this._newTransactionInstance(type, value);
+    this.transactionLog.push(transaction);
+  }
+
+  getTransactionLog() {
+    return this.transactionLog;
+  }
+
+  _newTransactionInstance(type, value) {
+    return new Transaction(this.balance, type, value);
   }
 }
