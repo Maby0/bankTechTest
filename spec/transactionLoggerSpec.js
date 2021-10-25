@@ -1,12 +1,17 @@
-describe("transaction", function () {
+describe("TransactionLogger", function () {
   beforeEach(function () {
-    transaction = new Transaction();
+    transaction = new TransactionLogger();
   });
 
   describe("deposit", function () {
     it("adds the argument value to the balance", function () {
       transaction.deposit(1);
       expect(transaction.getBalance()).toEqual(1);
+    })
+
+    it("adds the transaciton to the log array", function () {
+      transaction.deposit(1);
+      expect(transaction.getLog().length).toEqual(1);
     })
   })
 
@@ -16,5 +21,9 @@ describe("transaction", function () {
       transaction.withdraw(1);
       expect(transaction.getBalance()).toEqual(0);
     })
+
+    // it("adds the transaction to the log array", function () {
+
+    // })
   })
 })
