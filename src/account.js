@@ -4,18 +4,18 @@ class Account {
     this.transactionLog = [];
   }
 
-  newTransaction(type, value) {
-    let transaction = this._newTransactionInstance(type, value);
-    this.transactionLog.push(transaction);
-    this._updateBalance();
+  getBalance() {
+    return this.balance.toFixed(2);
   }
 
   getTransactionLog() {
     return this.transactionLog;
   }
 
-  getBalance() {
-    return this.balance.toFixed(2);
+  newTransaction(type, value) {
+    let transaction = this._newTransactionInstance(type, value);
+    this.transactionLog.push(transaction);
+    this._updateBalance();
   }
 
   printStatement() {
